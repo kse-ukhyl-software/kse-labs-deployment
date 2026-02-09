@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: example-service
-          image: ghcr.io/torinks/example-service:v0.0.13
+          image: ghcr.io/kse-bd8338bbe006/example-service:v0.0.13
           ports:
             - name: http
               containerPort: 8080
