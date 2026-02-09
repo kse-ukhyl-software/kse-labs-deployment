@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: example-service
   namespace: example-service
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /health
 spec:
   ingressClassName: nginx
   rules:
