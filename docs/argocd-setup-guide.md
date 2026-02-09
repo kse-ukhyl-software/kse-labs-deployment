@@ -385,14 +385,30 @@ These are two independent authentication mechanisms.
 
 ### Step 1: Create the Image Pull Secret
 
-Create a `docker-registry` secret in the namespace where your workload runs. Use a GitHub PAT with `read:packages` scope (fine-grained) or `read:packages` (classic):
+Create a `docker-registry` secret in the namespace where your workload runs.
+
+> **Important: Use a Classic PAT, not a Fine-grained PAT.**
+>
+> Fine-grained PATs do **not** support the `read:packages` permission required to pull container images from ghcr.io. The "Artifact metadata" permission available in fine-grained PATs only allows reading package metadata (names, tags), not pulling actual images.
+>
+> You must use a **Classic PAT** with the `read:packages` scope.
+
+#### Creating the Classic PAT
+
+1. Go to GitHub > Settings > Developer settings > Personal access tokens > **Tokens (classic)**
+2. Click **"Generate new token (classic)"**
+3. Select the `read:packages` scope
+4. If your org uses SSO, click **"Configure SSO"** next to the token and authorize it for the org
+5. Copy the token (starts with `ghp_`)
+
+#### Creating the Secret
 
 ```bash
 kubectl create secret docker-registry ghcr-pull-secret \
   -n <namespace> \
   --docker-server=ghcr.io \
   --docker-username=x-access-token \
-  --docker-password='<GITHUB_PAT>'
+  --docker-password='<CLASSIC_PAT_WITH_READ_PACKAGES>'
 ```
 
 > This secret must exist in **each namespace** that pulls from ghcr.io. If you have multiple services, create the secret in each service's namespace.
