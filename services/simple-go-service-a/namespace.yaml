@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: example-service
+  name: simple-go-service-a
   labels:
-    app.kubernetes.io/name: example-service
+    app.kubernetes.io/name: simple-go-service-a
     app.kubernetes.io/managed-by: argocd
