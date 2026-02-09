@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: services
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/TorinKS/kse-labs-deployment.git
+        revision: main
+        directories:
+          - path: services/*
+  template:
+    metadata:
+      name: 'svc-{{path.basename}}'
+    spec:
+      project: services
+      source:
+        repoURL: https://github.com/TorinKS/kse-labs-deployment.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

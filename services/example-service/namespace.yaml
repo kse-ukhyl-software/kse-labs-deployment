@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: example-service
+  labels:
+    app.kubernetes.io/name: example-service
+    app.kubernetes.io/managed-by: argocd
