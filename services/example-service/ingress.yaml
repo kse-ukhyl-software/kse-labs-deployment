@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-service
+  namespace: example-service
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /health
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /demo
+            pathType: Prefix
+            backend:
+              service:
+                name: example-service
+                port:
+                  number: 80
