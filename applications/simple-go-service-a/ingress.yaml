@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: simple-go-service-a
-  namespace: simple-go-service-a
+  namespace: applications
 spec:
   ingressClassName: nginx
   rules:

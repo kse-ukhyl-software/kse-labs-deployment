@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-go-service-a
-  namespace: simple-go-service-a
+  namespace: applications
   labels:
     app.kubernetes.io/name: simple-go-service-a
     app.kubernetes.io/version: v0.0.13
