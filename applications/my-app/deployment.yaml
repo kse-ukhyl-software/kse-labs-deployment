@@ -5,7 +5,6 @@ metadata:
   namespace: applications
   labels:
     app.kubernetes.io/name: my-app
-    app.kubernetes.io/version: v0.1.3
 spec:
   replicas: 1
   selector:
@@ -15,7 +14,6 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: my-app
-        app.kubernetes.io/version: v0.1.3
     spec:
       imagePullSecrets:
         - name: ghcr-pull-secret
@@ -24,8 +22,11 @@ spec:
           image: ghcr.io/kse-ukhyl-software/my-app:ef7e133655d8a76be26fcc0ff79b82da7db7f3c5
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 3000
               protocol: TCP
+          env:
+            - name: PORT
+              value: "3000"
           resources:
             requests:
               cpu: 100m
