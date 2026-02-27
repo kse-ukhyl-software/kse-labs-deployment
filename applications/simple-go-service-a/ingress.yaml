@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: simple-go-service-a.192.168.64.27.nip.io
+    - host: simple-go-service-a.192.168.50.10.nip.io
       http:
         paths:
           - path: /
