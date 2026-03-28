@@ -19,7 +19,7 @@ spec:
         - name: ghcr-pull-secret
       containers:
         - name: my-app
-          image: ghcr.io/kse-ukhyl-software/my-app:064b3fb5697e1e8d7fcc9962c651dab2f04fd99b
+          image: ghcr.io/kse-ukhyl-software/my-app:fb4114a75a570755fe3e3fb42b23a648eadfbead
           ports:
             - name: http
               containerPort: 3000
