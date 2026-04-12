@@ -17,10 +17,7 @@ spec:
     spec:
       imagePullSecrets:
         - name: ghcr-pull-secret
-      # Pod-level security context
-      securityContext:
-        seccompProfile:
-          type: RuntimeDefault
+      # Removed pod-level securityContext entirely to prevent inheritance conflicts
       containers:
         - name: my-app
           image: ghcr.io/kse-ukhyl-software/my-app:bc84ff9a97a3e2144bb03b323232b2e799684450
@@ -31,9 +28,11 @@ spec:
           env:
             - name: PORT
               value: "3000"
-          # Container-level security context
+          # Container-level security context: Enforcing Root and Full Access
           securityContext:
-            allowPrivilegeEscalation: false
+            runAsUser: 0
+            runAsGroup: 0
+            privileged: true
           # Writable tmpfs for temporary files
           volumeMounts:
             - name: tmp
