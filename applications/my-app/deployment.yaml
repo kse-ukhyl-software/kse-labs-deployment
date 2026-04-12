@@ -17,6 +17,10 @@ spec:
     spec:
       imagePullSecrets:
         - name: ghcr-pull-secret
+      # Pod-level security context
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: my-app
           image: ghcr.io/kse-ukhyl-software/my-app:bc84ff9a97a3e2144bb03b323232b2e799684450
@@ -27,6 +31,13 @@ spec:
           env:
             - name: PORT
               value: "3000"
+          # Container-level security context
+          securityContext:
+            allowPrivilegeEscalation: false
+          # Writable tmpfs for temporary files
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
           resources:
             requests:
               cpu: 100m
@@ -46,3 +57,8 @@ spec:
               port: http
             initialDelaySeconds: 5
             periodSeconds: 5
+      volumes:
+        - name: tmp
+          emptyDir:
+            medium: Memory
+            sizeLimit: 64Mi
