@@ -25,7 +25,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: my-app
-          image: ghcr.io/kse-ukhyl-software/my-app:c742b8d36d76abfa5028e847e36cd30fb85f8489
+          image: ghcr.io/kse-ukhyl-software/my-app:80c03c3ff92d5af975b99b8c020888fb6d31ea80
           ports:
             - name: http
               containerPort: 3000
