@@ -24,6 +24,8 @@ spec:
       kind: Secret
     - group: ''
       kind: ConfigMap
+    - group: ""
+      kind: LimitRange
     - group: ''
       kind: ServiceAccount
     - group: external-secrets.io
