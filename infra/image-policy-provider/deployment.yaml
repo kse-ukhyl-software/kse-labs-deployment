@@ -123,6 +123,7 @@ spec:
               scheme: HTTPS
             initialDelaySeconds: 3
             periodSeconds: 5
+            timeoutSeconds: 5
           livenessProbe:
             httpGet:
               path: /healthz
@@ -130,6 +131,7 @@ spec:
               scheme: HTTPS
             initialDelaySeconds: 10
             periodSeconds: 20
+            timeoutSeconds: 5
           resources:
             requests:
               cpu: 50m
