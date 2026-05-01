@@ -19,29 +19,9 @@ metadata:
   annotations:
     description: "Runtime config for the Cosign verifier (ALLOWED_REGISTRIES, COSIGN_*, LOG_*)."
 data:
-  # Comma-separated repo prefixes the verifier will accept. The image
-  # itself must be pinned by digest (repo@sha256:<64hex>); the prefix
-  # is matched against the repo portion before the @.
-  ALLOWED_REGISTRIES: "ghcr.io/kse-ukhyl-software"
-
-  # ---- Trust mode 1: key-based ----
-  # Path to a Cosign public key inside the container. Defaults to the
-  # empty key Secret mounted at /etc/cosign/cosign.pub -- which means
-  # every verification fails until a real key is loaded OR keyless
-  # mode is configured below. Set to "-" (or unset by removing the
-  # line) to use keyless mode instead.
-  COSIGN_KEY_PATH: "/etc/cosign/cosign.pub"
-
-  # ---- Trust mode 2: keyless (GitHub Actions OIDC) ----
-  # Uncomment and fill in to verify Sigstore-signed images instead of
-  # key-based ones. The verifier picks keyless mode whenever
-  # COSIGN_KEY_PATH is empty AND both of these are set.
-  # COSIGN_IDENTITY: "https://github.com/<your-org>/<your-repo>/.github/workflows/<workflow>.yml@refs/heads/main"
-  # COSIGN_OIDC_ISSUER: "https://token.actions.githubusercontent.com"
-
-  # ---- Logging ----
+  ALLOWED_REGISTRIES: "ghcr.io/oleksii-stepanyk"
+  COSIGN_KEY_PATH: ""
+  COSIGN_IDENTITY: "https://github.com/Oleksii-Stepanyk/image-sig-demo/.github/workflows/build-and-sign.yml@refs/heads/main"
+  COSIGN_OIDC_ISSUER: "https://token.actions.githubusercontent.com"
   LOG_LEVEL: "INFO"
-  # When "true", the provider dumps the full ProviderRequest and
-  # ProviderResponse JSON on every admission. Cheap and useful in
-  # the classroom; turn off in production.
   LOG_BODIES: "true"
