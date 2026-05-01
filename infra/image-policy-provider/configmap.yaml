@@ -20,7 +20,7 @@ metadata:
     description: "Runtime config for the Cosign verifier (ALLOWED_REGISTRIES, COSIGN_*, LOG_*)."
 data:
   ALLOWED_REGISTRIES: "ghcr.io/oleksii-stepanyk,ghcr.io/kse-ukhyl-software"
-  COSIGN_KEY_PATH: ""
+  COSIGN_KEY_PATH: "/etc/cosign/cosign.pub"
   COSIGN_IDENTITY: "https://github.com/Oleksii-Stepanyk/image-sig-demo/.github/workflows/build-and-sign.yml@refs/heads/main"
   COSIGN_OIDC_ISSUER: "https://token.actions.githubusercontent.com"
   LOG_LEVEL: "INFO"
