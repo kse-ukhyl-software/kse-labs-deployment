@@ -120,16 +120,16 @@ spec:
             httpGet:
               path: /readyz
               port: https
-              scheme: HTTP
-            initialDelaySeconds: 30
+              scheme: HTTPS
+            initialDelaySeconds: 10
             periodSeconds: 5
             timeoutSeconds: 5
           livenessProbe:
             httpGet:
               path: /healthz
               port: https
-              scheme: HTTP
-            initialDelaySeconds: 40
+              scheme: HTTPS
+            initialDelaySeconds: 15
             periodSeconds: 20
             timeoutSeconds: 5
           resources:
