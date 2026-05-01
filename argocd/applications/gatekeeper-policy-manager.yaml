@@ -14,7 +14,7 @@ metadata:
 spec:
   project: infra
   source:
-    repoURL: https://github.com/kse-bd8338bbe006/kse-labs-deployment.git
+    repoURL: https://github.com/kse-ukhyl-software/kse-labs-deployment.git
     targetRevision: main
     path: infra/gatekeeper-policy-manager
   destination:
