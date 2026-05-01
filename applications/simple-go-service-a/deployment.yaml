@@ -6,6 +6,9 @@ metadata:
   labels:
     app.kubernetes.io/name: simple-go-service-a
     app.kubernetes.io/version: v0.1.7
+    owner: platform-team
+    env: dev
+    cost-center: platform
 spec:
   replicas: 1
   selector:
