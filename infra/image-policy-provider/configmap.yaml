@@ -22,7 +22,7 @@ data:
   # Comma-separated repo prefixes the verifier will accept. The image
   # itself must be pinned by digest (repo@sha256:<64hex>); the prefix
   # is matched against the repo portion before the @.
-  ALLOWED_REGISTRIES: "ghcr.io/kse-bd8338bbe006"
+  ALLOWED_REGISTRIES: "ghcr.io/kse-ukhyl-software"
 
   # ---- Trust mode 1: key-based ----
   # Path to a Cosign public key inside the container. Defaults to the
