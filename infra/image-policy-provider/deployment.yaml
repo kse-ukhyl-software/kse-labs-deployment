@@ -121,7 +121,7 @@ spec:
               path: /readyz
               port: https
               scheme: HTTPS
-            initialDelaySeconds: 3
+            initialDelaySeconds: 30
             periodSeconds: 5
             timeoutSeconds: 5
           livenessProbe:
@@ -129,7 +129,7 @@ spec:
               path: /healthz
               port: https
               scheme: HTTPS
-            initialDelaySeconds: 10
+            initialDelaySeconds: 40
             periodSeconds: 20
             timeoutSeconds: 5
           resources:
