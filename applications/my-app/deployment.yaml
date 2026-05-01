@@ -7,6 +7,8 @@ metadata:
     app.kubernetes.io/name: my-app
     # Required by Gatekeeper constraint deployments-must-have-owner-label.
     owner: platform-team
+    env: dev
+    cost-center: platform
 spec:
   replicas: 1
   selector:
